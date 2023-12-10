@@ -1,0 +1,33 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/contracts",
+    "packages/webapp"
+  ],
+  "scripts": {
+    "lerna": "lerna",
+    "build": "lerna run build",
+    "test": "lerna run --parallel test",
+    "clean": "lerna run --parallel clean",
+    "prepare": "lerna run prepare",
+    "lint": "eslint 'packages/**/*.ts' --fix",
+    "format": "NODE_OPTIONS=--max_old_space_size=16384 prettier --write 'packages/**/*.{ts(x)?,sol,md,css,json}' '!**/typechain/**'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^8.0.0",
+    "typescript": "^5.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "yarn lint",
+      "yarn format"
+    ]
+  }
+}

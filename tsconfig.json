@@ -1,0 +1,6 @@
+{
+  "references": [
+    { "path": "packages/grounds-contracts" },
+    { "path": "packages/grounds-webapp" }
+  ]
+}
