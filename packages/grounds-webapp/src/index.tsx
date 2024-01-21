@@ -3,13 +3,16 @@ import { createRoot } from "react-dom/client"
 import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
+import { WalletProvider } from "./context/wallet"
 
 const container = document.getElementById("root") as Element | DocumentFragment
 const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
-    <App />
+    <WalletProvider>
+      <App />
+    </WalletProvider>
   </React.StrictMode>,
 )
 
